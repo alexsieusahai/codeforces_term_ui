@@ -28,7 +28,7 @@ class CursesTable:
             row = self.rows[i]
             column_window.move(beginning_dist, 2)
             if self.headers[header_index] in row:
-                column_window.addstr(row[self.headers[header_index]])
+                column_window.addstr(str(row[self.headers[header_index]]))
             beginning_dist += 1
 
 

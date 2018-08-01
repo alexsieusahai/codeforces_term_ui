@@ -45,7 +45,7 @@ class CursesInterface:
             login_window.move(currentForm.y, currentForm.x)
             c = login_window.getch()
             if c == curses.KEY_UP:
-                i = (i + 1) % len(cursesForms) 
+                i = (i + 1) % len(cursesForms)
             elif c == curses.KEY_DOWN:
                 i = (i - 1) % len(cursesForms)
             else:
@@ -53,7 +53,7 @@ class CursesInterface:
                 if shouldSubmit:
                     break
 
-        pw = cursesForms[1].value 
+        pw = cursesForms[1].value
         email = cursesForms[2].value
 
         return {'email': email, 'pw': pw}
@@ -67,7 +67,7 @@ class CursesInterface:
     def select_problem_flow(self, problems):
         problem_window = curses.newwin(curses.LINES - 1, curses.COLS - 1)
         problem_table = CursesTable(problem_window)
-        desiredCols = ['ContestId', 'Category', 'Name', 'Problem Type(s)', 'Submission Accuracy']
+        desiredCols = [str(key) for key in problems[0].keys()]
         for col in desiredCols:
             problem_table.add_header(col)
         for problem in problems:
